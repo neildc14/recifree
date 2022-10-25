@@ -6,10 +6,14 @@ import SearchRecipe from "./SearchRecipe";
 
 function Main() {
   return (
-    <div className="m-4">
-      <Header />
-      <Banner />
-      <SearchRecipe />
+    <div>
+      <div className="wrapper h-5/6 max-h-min rounded-br-full transition-all bg-center bg-no-repeat bg-cover px-4 pb-4 ">
+        <Header />
+        <Banner />
+      </div>
+      <div className="mx-4 pb-4 ">
+        <SearchRecipe />
+      </div>
     </div>
   );
 }

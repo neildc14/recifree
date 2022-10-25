@@ -9,4 +9,7 @@
     font-family: "Poppins", sans-serif;
   }
 }
-    
+
+.wrapper {
+  background-image: url("./assets/images/bg2.jpg");
+}
