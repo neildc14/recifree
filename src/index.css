@@ -10,6 +10,15 @@
   }
 }
 
-.wrapper {
-  background-image: url("./assets/images/bg2.jpg");
+@layer components {
+  .card {
+    background-color: theme("colors.white");
+    border-radius: theme("borderRadius.lg");
+    padding-bottom: theme("spacing.6");
+    box-shadow: theme("boxShadow.xl");
+  }
+
+  .wrapper {
+    background-image: url("./assets/images/bg2.jpg");
+  }
 }

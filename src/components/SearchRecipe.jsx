@@ -6,47 +6,51 @@ import React, {
   Suspense,
   lazy,
 } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import PulseLoading from "./PulseLoading";
-
-const SearchResults = lazy(() => import("./SearchResults"));
+import SearchResults from "./SearchResults";
 
 function SearchRecipe() {
-  const [typed, setTyped] = useState("");
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState({});
-  const [isFetching, setFetching] = useState(false);
 
-  console.log("SEARCH RECIPE--------------");
-  useEffect(() => {
+  let pulseLoading;
+
+  const fetchRecipe = () => {
     let APP_ID = "c8043fcb";
     let APP_KEY = "32a19536fa36875497acba0a67af0106";
-    let URL =
-      process.env.REACT_APP_URL ??
-      `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`;
-    console.log(search);
+
     if (search === "") {
-      return;
+      return null;
     }
 
-    setFetching(true);
+    return axios.get(
+      `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`
+    );
+  };
 
-    axios
-      .get(URL)
-      .then((response) => {
-        setResults(response.data);
-        setFetching(false);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [search]);
+  const { isLoading, isError, isFetching, refetch, data, error } = useQuery(
+    ["recipes"],
+    fetchRecipe,
+    { enabled: false }
+  );
+  console.log(isLoading, isFetching);
+
+  if (isFetching) {
+    pulseLoading = true;
+  }
+
+  if (isError) {
+    console.log(error.message);
+  }
+
+  console.log("SEARCH RECIPE--------------");
 
   const handleChange = (e) => {
-    setTyped(e.target.value);
+    setSearch(e.target.value);
   };
   const searchRecipe = () => {
-    setSearch(typed);
+    refetch();
   };
 
   return (
@@ -71,14 +75,14 @@ function SearchRecipe() {
           </svg>
         </button>
       </div>
-
-      {isFetching ? (
+      {pulseLoading ? (
         <div>
+          <PulseLoading />
           <PulseLoading />
           <PulseLoading />
         </div>
       ) : (
-        <SearchResults results={results} />
+        <SearchResults results={data} />
       )}
     </>
   );
