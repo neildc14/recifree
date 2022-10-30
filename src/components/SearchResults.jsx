@@ -20,8 +20,8 @@ function SearchResults({ results }) {
   });
 
   return (
-    <div className="container mt-20">
-      <div className="flex flex-col flex-wrap gap-7">
+    <div className="container mt-10">
+      <div className="flex flex-col flex-wrap md:flex-row lg:flex-row gap-7 md:gap-5">
         {recipes.map((recipe) => (
           <Recipe recipe={recipe} key={recipe.recipe.uri} />
         ))}

@@ -9,7 +9,7 @@ function RecipeImage({ image }) {
     <img
       src={image !== null ? image : food}
       alt="recipe image"
-      className="z-0 h-48 mb-10 rounded-b-3xl w-full overflow-hidden overflow-y-hidden"
+      className="z-0 h-48 mb-8 md:mb-6 rounded-b-3xl w-full overflow-hidden overflow-y-hidden"
     />
   );
 }

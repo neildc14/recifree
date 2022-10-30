@@ -2,7 +2,7 @@ import React from "react";
 
 function PulseLoading() {
   return (
-    <div className="mt-11 border border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto bg-slate-100">
+    <div className="h-72 mt-11 border border-blue-100 shadow rounded-md p-4 max-w-sm w-full mx-auto bg-slate-100">
       <div className="animate-pulse flex space-x-4">
         <div className="rounded-full bg-slate-200 h-10 w-10"></div>
         <div className="flex-1 space-y-6 py-1">

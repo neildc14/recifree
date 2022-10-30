@@ -13,7 +13,6 @@ import SearchResults from "./SearchResults";
 
 function SearchRecipe() {
   const [search, setSearch] = useState("");
-
   let pulseLoading;
 
   const fetchRecipe = () => {
@@ -25,7 +24,9 @@ function SearchRecipe() {
     }
 
     return axios.get(
-      `https://api.edamam.com/search?q=${search}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${search}&app_id=${
+        process.env.REACT_APP_ID ?? APP_ID
+      }&app_key=${process.env.REACT_APP_KEY ?? APP_KEY}`
     );
   };
 
@@ -49,13 +50,19 @@ function SearchRecipe() {
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
   const searchRecipe = () => {
     refetch();
   };
 
   return (
     <>
-      <div className="container flex justify-center mt-10">
+      <div className="mt-10">
+        <h2 className="text-center text-base text-slate-500">
+          <em>Search for your desired recipes..</em>
+        </h2>
+      </div>
+      <div className="container flex justify-center mt-2">
         <input
           type="search"
           className="h-12 w-full md:max-w-xl p-2 border border-orange-400 focus:outline-orange-600 focus:border-none rounded-tl-2xl rounded-bl-2xl text-base bg-neutral-100 text-gray-700"
@@ -75,8 +82,13 @@ function SearchRecipe() {
           </svg>
         </button>
       </div>
+      {data ? (
+        <h2 className="mt-12 text-center text-4xl text-gray-600 tracking-wide">
+          Recipes
+        </h2>
+      ) : null}
       {pulseLoading ? (
-        <div>
+        <div className="flex flex-col flex-wrap md:flex-row lg:flex-row ">
           <PulseLoading />
           <PulseLoading />
           <PulseLoading />

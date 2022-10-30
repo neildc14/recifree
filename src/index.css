@@ -14,11 +14,11 @@
   .card {
     background-color: theme("colors.white");
     border-radius: theme("borderRadius.lg");
-    padding-bottom: theme("spacing.6");
+   
     box-shadow: theme("boxShadow.xl");
   }
 
-  .wrapper {
+  /* .wrapper {
     background-image: url("./assets/images/bg2.jpg");
-  }
+  } */
 }

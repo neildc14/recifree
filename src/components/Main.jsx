@@ -7,13 +7,13 @@ import SearchRecipe from "./SearchRecipe";
 function Main() {
   return (
     <div>
-      <div className="wrapper h-5/6 max-h-min rounded-br-full transition-all bg-center bg-no-repeat bg-cover px-4 pb-4 ">
+      <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-orange-400  px-4 pb-16 ">
         <Header />
         <Banner />
       </div>
-      <div className="mx-4 pb-4 ">
+      <section className="mx-4 pb-4 ">
         <SearchRecipe />
-      </div>
+      </section>
     </div>
   );
 }
