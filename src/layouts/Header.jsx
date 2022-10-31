@@ -1,40 +1,33 @@
 import React, { useState, useEffect } from "react";
 import hamburger_menu from "../assets/images/hamburger_menu.svg";
-import burger from "../assets/images/burger.png";
+
+import Logo from "../components/Logo";
+import Nav from "./Nav";
 
 function Header() {
   const [isMobileView, setMobileView] = useState(true);
-  // console.log("header");
+  const LARGE_DEVICE_VIEWPORT = 826;
+
+  const resizeListener = () => {
+    const vw = Math.max(
+      document.documentElement.clientWidth || 0,
+      window.innerWidth || 0
+    );
+    if (vw >= LARGE_DEVICE_VIEWPORT) {
+      setMobileView(false);
+    } else {
+      setMobileView(true);
+    }
+    console.log(vw);
+  };
+
+  window.addEventListener("resize", resizeListener);
+
+  console.log("header");
   return (
     <header className="container flex flex-row justify-between items-baseline pb-2 border-b-2 ">
-      <div className="flex items-baseline">
-        <img src={burger} alt="hamburger logo" className="h-14" />
-        <p className="text-slate-50 text-3xl tracking-tighter">recifree</p>
-      </div>
-      <nav className=" ">
-        {isMobileView ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="48"
-            width="48"
-            className="fill-slate-50"
-          >
-            <path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z" />
-          </svg>
-        ) : (
-          <ul className="flex justify-center ">
-            <li>
-              <a href="#">Recipes</a>
-            </li>
-            <li>
-              <a href="#">About Us</a>
-            </li>
-            <li>
-              <a href="#">Feeds</a>
-            </li>
-          </ul>
-        )}
-      </nav>
+      <Logo />
+      <Nav isMobileView={isMobileView} />
     </header>
   );
 }
