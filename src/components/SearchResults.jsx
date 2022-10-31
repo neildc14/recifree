@@ -3,6 +3,7 @@ import Recipe from "./Recipe";
 
 function SearchResults({ results }) {
   console.log("SEARCH RESULTS------------");
+  console.log(results);
 
   if (results === null || results === undefined) {
     return;

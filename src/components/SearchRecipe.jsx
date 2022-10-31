@@ -1,11 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useCallback,
-  useMemo,
-  Suspense,
-  lazy,
-} from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import PulseLoading from "./PulseLoading";
@@ -16,17 +9,12 @@ function SearchRecipe() {
   let pulseLoading;
 
   const fetchRecipe = () => {
-    let APP_ID = "c8043fcb";
-    let APP_KEY = "32a19536fa36875497acba0a67af0106";
-
     if (search === "") {
       return null;
     }
 
     return axios.get(
-      `https://api.edamam.com/search?q=${search}&app_id=${
-        process.env.REACT_APP_ID ?? APP_ID
-      }&app_key=${process.env.REACT_APP_KEY ?? APP_KEY}`
+      `https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_KEY}`
     );
   };
 
@@ -36,7 +24,7 @@ function SearchRecipe() {
     { enabled: false }
   );
   console.log(isLoading, isFetching);
-
+ 
   if (isFetching) {
     pulseLoading = true;
   }
@@ -82,6 +70,7 @@ function SearchRecipe() {
           </svg>
         </button>
       </div>
+
       {data ? (
         <h2 className="mt-12 text-center text-4xl text-gray-600 tracking-wide">
           Recipes
@@ -94,7 +83,17 @@ function SearchRecipe() {
           <PulseLoading />
         </div>
       ) : (
-        <SearchResults results={data} />
+        <div>
+          {" "}
+          <SearchResults results={data} />
+          {data && (
+            <section>
+              <button className="block mx-auto mt-10 p-2 bg-stone-300 hover:bg-stone-500 hover:text-slate-50">
+                VIEW MORE
+              </button>
+            </section>
+          )}
+        </div>
       )}
     </>
   );

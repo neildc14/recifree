@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import hamburger_menu from "../assets/images/hamburger_menu.svg";
-import logo from "../assets/images/logo.png";
+import burger from "../assets/images/burger.png";
 
 function Header() {
   const [isMobileView, setMobileView] = useState(true);
   // console.log("header");
   return (
-    <header className="container flex flex-row justify-between items-center pb-2 border-b-2 ">
-      <div>
+    <header className="container flex flex-row justify-between items-baseline pb-2 border-b-2 ">
+      <div className="flex items-baseline">
+        <img src={burger} alt="hamburger logo" className="h-14" />
         <p className="text-slate-50 text-3xl tracking-tighter">recifree</p>
       </div>
       <nav className=" ">
