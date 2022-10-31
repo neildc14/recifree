@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import PulseLoading from "./PulseLoading";
@@ -24,7 +24,7 @@ function SearchRecipe() {
     { enabled: false }
   );
   console.log(isLoading, isFetching);
- 
+
   if (isFetching) {
     pulseLoading = true;
   }
@@ -43,6 +43,21 @@ function SearchRecipe() {
     refetch();
   };
 
+  useEffect(() => {
+    let searchBar = document.getElementById("search");
+    searchBar.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        refetch();
+      }
+    });
+
+    searchBar.removeEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        refetch();
+      }
+    });
+  }, []);
+
   return (
     <>
       <div className="mt-10">
@@ -52,6 +67,7 @@ function SearchRecipe() {
       </div>
       <div className="container flex justify-center mt-2">
         <input
+          id="search"
           type="search"
           className="h-12 w-full md:max-w-xl p-2 border border-orange-400 focus:outline-orange-600 focus:border-none rounded-tl-2xl rounded-bl-2xl text-base bg-neutral-100 text-gray-700"
           onChange={handleChange}
@@ -73,9 +89,10 @@ function SearchRecipe() {
 
       {data ? (
         <h2 className="mt-12 text-center text-4xl text-gray-600 tracking-wide">
-          Recipes
+          {data.data.count !== 0 ? "Recipes" : "No Recipes"}
         </h2>
       ) : null}
+
       {pulseLoading ? (
         <div className="flex flex-col flex-wrap md:flex-row lg:flex-row ">
           <PulseLoading />
@@ -86,13 +103,15 @@ function SearchRecipe() {
         <div>
           {" "}
           <SearchResults results={data} />
-          {data && (
+          {data ? (
             <section>
-              <button className="block mx-auto mt-10 p-2 bg-stone-300 hover:bg-stone-500 hover:text-slate-50">
-                VIEW MORE
-              </button>
+              {data.data.count !== 0 && (
+                <button className="block mx-auto mt-10 p-2 bg-stone-300 hover:bg-stone-500 hover:text-slate-50">
+                  VIEW MORE
+                </button>
+              )}
             </section>
-          )}
+          ) : null}
         </div>
       )}
     </>

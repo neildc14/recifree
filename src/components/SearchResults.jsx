@@ -1,5 +1,6 @@
-import React, { useState, useReducer, useEffect, useMemo } from "react";
+import React from "react";
 import Recipe from "./Recipe";
+import Fade from "react-reveal/Fade";
 
 function SearchResults({ results }) {
   console.log("SEARCH RESULTS------------");
@@ -23,8 +24,10 @@ function SearchResults({ results }) {
   return (
     <div className="container mt-10">
       <div className="flex flex-col flex-wrap md:flex-row lg:flex-row gap-7 md:gap-5">
-        {recipes.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.recipe.uri} />
+        {recipes.map((recipe, index) => (
+          <Fade bottom>
+            <Recipe recipe={recipe} key={recipe.recipe.uri + index} />
+          </Fade>
         ))}
       </div>
     </div>

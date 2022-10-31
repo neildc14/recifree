@@ -1,10 +1,14 @@
+import React, { lazy, Suspense } from "react";
 import Main from "./components/Main";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import RecipeDetails from "./components/RecipeDetails";
+
 import { Routes, Route } from "react-router-dom";
 import Header from "./layouts/Header";
 import Banner from "./layouts/Banner";
+import PulseLoading from "./components/PulseLoading";
+
+const RecipeDetails = lazy(() => import("./components/RecipeDetails"));
 
 const queryClient = new QueryClient();
 
@@ -25,9 +29,11 @@ function App() {
           <Route
             path="recipe/:id"
             element={
-              <RecipeDetails>
-                <Header />
-              </RecipeDetails>
+              <Suspense fallback={<PulseLoading />}>
+                <RecipeDetails>
+                  <Header />
+                </RecipeDetails>
+              </Suspense>
             }
           />
         </Routes>
