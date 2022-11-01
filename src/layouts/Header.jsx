@@ -18,10 +18,13 @@ function Header() {
     } else {
       setMobileView(true);
     }
-    console.log(vw);
   };
 
   window.addEventListener("resize", resizeListener);
+
+  useEffect(() => {
+    resizeListener();
+  }, []);
 
   console.log("header");
   return (

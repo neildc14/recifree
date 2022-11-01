@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Banner from "../layouts/Banner";
-import Header from "../layouts/Header";
+import React from "react";
 import SearchRecipe from "./SearchRecipe";
 
 

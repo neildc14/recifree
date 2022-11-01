@@ -69,8 +69,10 @@ function SearchRecipe() {
         <input
           id="search"
           type="search"
+          autoComplete="off"
           className="h-12 w-full md:max-w-xl p-2 border border-orange-400 focus:outline-orange-600 focus:border-none rounded-tl-2xl rounded-bl-2xl text-base bg-neutral-100 text-gray-700"
           onChange={handleChange}
+
         />
         <button
           onClick={searchRecipe}
@@ -100,7 +102,7 @@ function SearchRecipe() {
           <PulseLoading />
         </div>
       ) : (
-        <div>
+        <div className="w-full">
           {" "}
           <SearchResults results={data} />
           {data ? (
