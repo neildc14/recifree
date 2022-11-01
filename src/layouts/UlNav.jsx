@@ -5,18 +5,18 @@ export default function UlNav({ ulClass, linkClass }) {
   return (
     <ul className={ulClass}>
       <li>
-        <NavLink href="#" className={linkClass}>
-          Recipes
+        <NavLink to="/" className={linkClass}>
+          Home
         </NavLink>
       </li>
       <li>
-        <NavLink href="#" className={linkClass}>
+        <NavLink to="categories" className={linkClass}>
+          Categories
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/about" className={linkClass}>
           About Us
-        </NavLink>
-      </li>
-      <li>
-        <NavLink href="#" className={linkClass}>
-          Feeds
         </NavLink>
       </li>
     </ul>

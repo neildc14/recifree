@@ -19,7 +19,7 @@ function RecipeDetails({ children }) {
   return (
     <div>
       {" "}
-      <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-green-400  px-4 pb-16 ">
+      <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-green-400  px-4 pb-16 shadow-md shadow-gray-400 ">
         {children}
         <h1 className="pt-10 text-center text-3xl text-slate-50 ">{label}</h1>
       </div>

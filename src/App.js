@@ -9,6 +9,7 @@ import Banner from "./layouts/Banner";
 import PulseLoading from "./components/PulseLoading";
 
 const RecipeDetails = lazy(() => import("./components/RecipeDetails"));
+const About = lazy(() => import("./pages/About"));
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,16 @@ function App() {
                 <RecipeDetails>
                   <Header />
                 </RecipeDetails>
+              </Suspense>
+            }
+          />
+          <Route
+            path="about"
+            element={
+              <Suspense fallback={<PulseLoading />}>
+                <About>
+                  <Header />
+                </About>
               </Suspense>
             }
           />
