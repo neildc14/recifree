@@ -30,7 +30,7 @@ function About({ children }) {
             -developer.edamam.com
           </a>
         </div>
-        <p class="mt-5 text-center text-slate-600">
+        <p className="mt-5 text-center text-slate-600">
           This app was built and developed by Neil Edward Dela Cruz.
         </p>
       </section>

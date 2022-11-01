@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import NutririonTable from "./NutririonTable";
 import Ingredients from "./Ingredients";
+import Header from "../layouts/Header";
 
 function RecipeDetails({ children }) {
   const location = useLocation();
@@ -18,10 +19,12 @@ function RecipeDetails({ children }) {
   console.log(from);
   return (
     <div>
-      <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-green-400  px-4 pb-16 shadow-md shadow-gray-400 ">
-        {children}
-        <h1 className="pt-10 text-center text-3xl text-slate-50 ">{label}</h1>
-      </div>
+      <Header
+        label={label}
+        headingClass="pt-10 text-center text-3xl text-slate-50 "
+        headerClass="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-green-400  px-4 pb-16 shadow-md shadow-gray-400"
+      />
+
       <section className="flex flex-col  w-80 mx-auto mt-10 ">
         <Fade>
           <ImageDetail image={image} label={label} />

@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import PulseLoading from "./PulseLoading";
 import SearchResults from "./SearchResults";
 import useFetchRecipe from "../hooks/useFetchRecipe";
