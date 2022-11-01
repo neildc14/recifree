@@ -3,8 +3,6 @@ import RecipeImage from "./RecipeImage";
 import { Link } from "react-router-dom";
 
 function Recipe({ recipe }) {
-  // console.log("RECIPE-----------------");
-  // console.log(recipe);
   return (
     <section className="relative z-10 w-80 md:w-60 m-auto md:mx-0 card border-solid border border-neutral-300 ">
       <RecipeImage image={recipe.recipe.image} />

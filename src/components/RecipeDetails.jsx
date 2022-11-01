@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import NutririonTable from "./NutririonTable";
@@ -18,17 +18,13 @@ function RecipeDetails({ children }) {
   console.log(from);
   return (
     <div>
-      {" "}
       <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-green-400  px-4 pb-16 shadow-md shadow-gray-400 ">
         {children}
         <h1 className="pt-10 text-center text-3xl text-slate-50 ">{label}</h1>
       </div>
       <section className="flex flex-col  w-80 mx-auto mt-10 ">
         <Fade>
-          {" "}
-          <figure>
-            <img src={image} alt={label} className="w-full rounded-lg " />
-          </figure>
+          <ImageDetail image={image} label={label} />
         </Fade>
         <Fade>
           <Ingredients
@@ -44,5 +40,13 @@ function RecipeDetails({ children }) {
     </div>
   );
 }
+
+const ImageDetail = ({ image, label }) => {
+  return (
+    <figure>
+      <img src={image} alt={label} className="w-full rounded-lg " />
+    </figure>
+  );
+};
 
 export default React.memo(RecipeDetails);

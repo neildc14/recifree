@@ -10,11 +10,6 @@ export default function UlNav({ ulClass, linkClass }) {
         </NavLink>
       </li>
       <li>
-        <NavLink to="categories" className={linkClass}>
-          Categories
-        </NavLink>
-      </li>
-      <li>
         <NavLink to="/about" className={linkClass}>
           About Us
         </NavLink>

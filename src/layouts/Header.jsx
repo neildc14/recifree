@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import hamburger_menu from "../assets/images/hamburger_menu.svg";
-
 import Logo from "../components/Logo";
 import Nav from "./Nav";
 
@@ -26,7 +24,7 @@ function Header() {
     resizeListener();
   }, []);
 
-  console.log("header");
+  // console.log("header");
   return (
     <header className="container flex flex-row justify-between items-baseline pb-2 border-b-2 ">
       <Logo />

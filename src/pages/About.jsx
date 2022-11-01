@@ -9,7 +9,7 @@ function About({ children }) {
       </div>
       <section className="mt-10 mx-auto px-2 lg:w-1/2">
         <h1 className="text-center text-2xl leading-8">
-          " Our Recipe Search API allows you to search through millions of web
+          "Our Recipe Search API allows you to search through millions of web
           recipes and integrate this information into your mobile or web
           applications."
         </h1>
