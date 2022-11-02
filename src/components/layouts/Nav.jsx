@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import HamburgerButton from "../components/buttons/HamburgerButton";
+import HamburgerButton from "../buttons/HamburgerButton";
 import ModalNav from "./ModalNav";
 import UlNav from "./UlNav";
 

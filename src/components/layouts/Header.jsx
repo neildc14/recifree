@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../components/Logo";
+import Logo from "./Logo";
 import Banner from "./Banner";
 import Nav from "./Nav";
 
@@ -25,7 +25,6 @@ function Header({ label, headerClass, headingClass }) {
     resizeListener();
   }, []);
 
-  // console.log("header");
   return (
     <div className={headerClass}>
       <header className="container flex flex-row justify-between items-baseline pb-2 border-b-2 ">

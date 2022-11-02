@@ -1,5 +1,5 @@
 import React from "react";
-import burger from "../assets/images/burger.png";
+import burger from "../../assets/images/burger.png";
 import { Link } from "react-router-dom";
 
 function Logo() {

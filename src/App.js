@@ -4,11 +4,11 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Routes, Route } from "react-router-dom";
-import Header from "./layouts/Header";
+import Header from "./components/layouts/Header";
 import PulseLoading from "./components/PulseLoading";
 
 const RecipeDetails = lazy(() => import("./components/RecipeDetails"));
-const About = lazy(() => import("./pages/About"));
+const About = lazy(() => import("./components/pages/About"));
 
 const queryClient = new QueryClient();
 

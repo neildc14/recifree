@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import NutririonTable from "./NutririonTable";
 import Ingredients from "./Ingredients";
-import Header from "../layouts/Header";
+import Header from "./layouts/Header";
 import RecipeImage from "./RecipeImage";
 
-function RecipeDetails({ children }) {
+function RecipeDetails() {
   const location = useLocation();
   const { from } = location.state;
   const { label, image, ingredients, calories, totalWeight, totalNutrients } =
@@ -17,7 +17,7 @@ function RecipeDetails({ children }) {
   for (let [key, value] of Object.entries(totalNutrients)) {
     recipeNutrients.push(value);
   }
-  console.log(from);
+
   return (
     <div>
       <Header
