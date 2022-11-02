@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
+import HamburgerButton from "../components/buttons/HamburgerButton";
 import ModalNav from "./ModalNav";
 import UlNav from "./UlNav";
 
 export default function Nav({ isMobileView }) {
   const [isToggled, setToggle] = useState(false);
-  const toggleMenu = () => {
+
+  const toggleMenu = useCallback(() => {
     setToggle(!isToggled);
-  };
+  }, [isToggled]);
+
   return (
     <nav className=" ">
       {isMobileView ? (
         <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="48"
-            width="48"
-            className="fill-slate-50"
-            onClick={toggleMenu}
-          >
-            <path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z" />
-          </svg>
-          {isToggled && <ModalNav />}
+          <HamburgerButton toggleMenu={toggleMenu} />
+          {isToggled && (
+            <ModalNav toggleMenu={toggleMenu} isToggled={isToggled} />
+          )}
         </div>
       ) : (
         <UlNav

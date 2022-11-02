@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function UlNav({ ulClass, linkClass }) {
+function UlNav({ ulClass, linkClass }, ref) {
   return (
-    <ul className={ulClass}>
+    <ul className={ulClass} ref={ref}>
       <li>
         <NavLink to="/" className={linkClass}>
           Home
@@ -17,3 +17,4 @@ export default function UlNav({ ulClass, linkClass }) {
     </ul>
   );
 }
+export default React.forwardRef(UlNav);

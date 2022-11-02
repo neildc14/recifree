@@ -1,9 +1,9 @@
 import React from "react";
 
-function About({ children }) {
+export default function About({ children }) {
   return (
-    <div> 
-        {children}
+    <div>
+      {children}
       <section className="mt-10 mx-auto px-2 lg:w-1/2">
         <h1 className="text-center text-2xl leading-8">
           "Our Recipe Search API allows you to search through millions of web
@@ -34,5 +34,3 @@ function About({ children }) {
     </div>
   );
 }
-
-export default About;

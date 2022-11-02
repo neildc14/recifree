@@ -3,9 +3,6 @@ import Recipe from "./Recipe";
 import Fade from "react-reveal/Fade";
 
 function SearchResults({ results }) {
-  console.log("SEARCH RESULTS------------");
-  console.log(results);
-
   if (results === null || results === undefined) {
     return;
   }
