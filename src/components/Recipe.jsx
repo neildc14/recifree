@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 function Recipe({ recipe }) {
   return (
     <section className="relative z-10 w-80 md:w-60 m-auto md:mx-0 card border-solid border border-neutral-300 ">
-      <RecipeImage image={recipe.recipe.image} />
+      <RecipeImage
+        image={recipe.recipe.image}
+        label={recipe.recipe.label}
+        classImage="z-0 h-48 mb-8 md:mb-6 rounded-b-3xl w-full overflow-hidden "
+      />
       <div className="">
         <div className="h-24 md:h-28 lg:h-36 px-6">
           <h2 className="text-base font-medium tracking-wide">

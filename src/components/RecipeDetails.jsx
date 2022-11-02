@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import NutririonTable from "./NutririonTable";
 import Ingredients from "./Ingredients";
 import Header from "../layouts/Header";
+import RecipeImage from "./RecipeImage";
 
 function RecipeDetails({ children }) {
   const location = useLocation();
@@ -27,7 +28,11 @@ function RecipeDetails({ children }) {
 
       <section className="flex flex-col  w-80 mx-auto mt-10 ">
         <Fade>
-          <ImageDetail image={image} label={label} />
+          <RecipeImage
+            image={image}
+            label={label}
+            classImage="w-full rounded-lg"
+          />
         </Fade>
         <Fade>
           <Ingredients
@@ -43,13 +48,5 @@ function RecipeDetails({ children }) {
     </div>
   );
 }
-
-const ImageDetail = ({ image, label }) => {
-  return (
-    <figure>
-      <img src={image} alt={label} className="w-full rounded-lg " />
-    </figure>
-  );
-};
 
 export default React.memo(RecipeDetails);

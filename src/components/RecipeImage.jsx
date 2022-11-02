@@ -1,13 +1,15 @@
 import React from "react";
 import food from "../assets/images/food.png";
 
-function RecipeImage({ image }) {
+function RecipeImage({ image, label, classImage }) {
   return (
-    <img
-      src={image !== null ? image : food}
-      alt="recipe image"
-      className="z-0 h-48 mb-8 md:mb-6 rounded-b-3xl w-full overflow-hidden "
-    />
+    <figure>
+      <img
+        src={image !== null ? image : food}
+        alt={label}
+        className={classImage}
+      />
+    </figure>
   );
 }
 
