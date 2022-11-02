@@ -42,7 +42,11 @@ function App() {
             element={
               <Suspense fallback={<PulseLoading />}>
                 <About>
-                  <Header />
+                  <Header
+                    label="About Us"
+                    headingClass="pt-10 text-center text-3xl text-slate-50"
+                    headerClass="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-sky-400  px-4 pb-16 shadow-md shadow-gray-400"
+                  />
                 </About>
               </Suspense>
             }

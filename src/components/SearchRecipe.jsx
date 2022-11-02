@@ -70,7 +70,6 @@ function SearchRecipe() {
       ) : (
         <div className="w-full">
           <SearchResults results={data} />
-          <ViewMore data={data} />
         </div>
       )}
     </>

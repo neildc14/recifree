@@ -9,6 +9,7 @@ function SearchResults({ results }) {
   if (results === null || results === undefined) {
     return;
   }
+
   const hits = [];
   for (let [key, value] of Object.entries(results.data.hits)) {
     hits.push(key, value);
@@ -24,7 +25,7 @@ function SearchResults({ results }) {
   return (
     <div className="container mt-10">
       <div className="flex flex-col flex-wrap md:flex-row lg:flex-row justify-center gap-5 ">
-        {recipes.map((recipe, index) => (
+        {recipes?.map((recipe, index) => (
           <Fade bottom>
             <Recipe recipe={recipe} key={recipe.recipe.uri + index} />
           </Fade>

@@ -2,11 +2,8 @@ import React from "react";
 
 function About({ children }) {
   return (
-    <div>
-      <div className="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-sky-400  px-4 pb-16 shadow-md shadow-gray-400">
+    <div> 
         {children}
-        <h1 className="pt-10 text-center text-3xl text-slate-50 ">About Us</h1>
-      </div>
       <section className="mt-10 mx-auto px-2 lg:w-1/2">
         <h1 className="text-center text-2xl leading-8">
           "Our Recipe Search API allows you to search through millions of web

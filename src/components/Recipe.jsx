@@ -22,7 +22,7 @@ function Recipe({ recipe }) {
             state={{ from: recipe }}
             className="max-w-full m-0 p-2 block text-center  bg-emerald-500 text-white"
           >
-            Full details
+            More details
           </Link>
         </div>
       </div>
