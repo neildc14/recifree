@@ -22,7 +22,7 @@ function App() {
             element={
               <Main>
                 <Header
-                  label="Youre culinary adventure awaits."
+                  label="Your culinary adventure awaits."
                   headingClass="text-5xl text-center text-slate-50 font-bold"
                   headerClass="wrapper h-5/6 max-h-min rounded-bl-3xl rounded-br-3xl transition-all bg-orange-400 shadow-md shadow-gray-400  px-4 pb-16"
                 />
